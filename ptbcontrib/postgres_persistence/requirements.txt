@@ -1,2 +1,2 @@
-python-telegram-bot>=20.0,<22
-SQLAlchemy==1.4.52
+python-telegram-bot>=20.0
+SQLAlchemy==1.4.54
