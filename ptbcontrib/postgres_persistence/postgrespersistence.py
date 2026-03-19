@@ -155,8 +155,8 @@ class PostgresPersistence(DictPersistence):
                 self.logger.info("Old database schema detected. Running migration...")
                 migration_commands = [
                     "ALTER TABLE persistence ADD COLUMN id INT;",
-                    """UPDATE persistence SET id = :id WHERE ctid = ("
-                        "SELECT ctid FROM persistence LIMIT 1);""",
+                    """UPDATE persistence SET id = :id WHERE ctid = (
+                        SELECT ctid FROM persistence LIMIT 1);""",
                     "DELETE FROM persistence WHERE id IS NULL;",
                     "ALTER TABLE persistence ALTER COLUMN id SET NOT NULL;",
                     "ALTER TABLE persistence ADD PRIMARY KEY (id);",
